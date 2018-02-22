@@ -1,0 +1,49 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="angularTest/js/main.js"></script>
+<script src="angularTest/js/myNote.js"></script>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AngularTestSite</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Form Example</a></li>
+      <li><a href="#myNote">My Note</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+<form ng-app="myApp" ng-controller="validateCtrl" name="myForm">
+
+<p>Username:<br>
+<input type="text" name="user" ng-model="user" required>
+<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+<span ng-show="myForm.user.$error.required">Username is required.</span>
+</span>
+</p>
+
+<p>Email:<br>
+<input type="email" name="email" ng-model="email" required>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+<span ng-show="myForm.email.$error.required">Email is required.</span>
+<span ng-show="myForm.email.$error.email">Invalid email address.</span>
+</span>
+</p>
+
+<p>
+<input type="submit"
+ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+myForm.email.$dirty && myForm.email.$invalid">
+</p>
+
+</form>
+
+
+
+</body>
+</html>
